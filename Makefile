@@ -20,6 +20,15 @@ prune-image:
 nuke-image: 
 	docker images -a -q | xargs docker rmi -f
 
+
+# Connect to shell on running container
+api-shell:
+	docker exec -it coach-lau_api_1 /bin/sh
+
+client-shell:
+	docker exec -it coach-lau_client_1 /bin/sh
+
+
 .PHONY: dev-stop dev-down migrate-up migrate-down \
 		prod-stop prod-down build-dev api-shell \
 		client-shell ssh run-production build-production \
