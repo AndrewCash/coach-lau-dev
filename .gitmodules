@@ -1,6 +1,8 @@
 [submodule "coach-lau-api"]
 	path = api
+	branch = master
 	url = git@github.com:AndrewCash/coach-lau-api.git
 [submodule "coach-lau-client"]
 	path = client
+	branch = master
 	url = git@github.com:AndrewCash/coach-lau-client.git
