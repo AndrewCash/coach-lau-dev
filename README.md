@@ -13,6 +13,6 @@ git submodule init
 git submodule update
 
 # start docker-compose
-make dev-build
-make dev-run
+make build-dev
+make run-dev
 ```
