@@ -1,0 +1,58 @@
+# DEVELOPMENT DOCKER-COMPOSE
+
+version: "3"
+services:
+  client:
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+    image: lau-client-dev
+    stdin_open: true
+    ports:
+      - "5000:5000"
+    networks:
+      - coach-lau-app
+    restart: always
+    volumes:
+      - ./client/:/home/node/client
+      - /home/node/client/node_modules
+  api:
+    environment:
+      - NODE_ENV=development
+      - PORT=3333
+    image: lau-api-dev
+    ports:
+      - "3333:3333"
+    # env_file: ./api/config/${ENV}.env
+    networks:
+      - coach-lau-app
+    restart: always
+    volumes:
+      - ./api/:/home/node/api
+      - /home/node/api/node_modules
+    depends_on:
+      - db
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=lau
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    networks:
+      - coach-lau-app
+    ports:
+      - "5432:5432"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+networks:
+  coach-lau-app:
+    driver: bridge
+volumes:
+  pg-data:
+    driver: local
