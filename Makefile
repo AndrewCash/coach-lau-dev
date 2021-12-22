@@ -6,15 +6,15 @@ build-dev:
 run-dev:
 	ENV=dev docker-compose -f docker-compose.yml up
 
-dev-stop:
+stop-dev:
 	ENV=dev docker-compose -f docker-compose.yml stop
 	
-dev-down:
+down-dev:
 	ENV=dev docker-compose -f docker-compose.yml down
 
 
 # Cleanup all docker images on host
-prune:
+prune-image:
 	docker image prune -a
 
 nuke-image: 
