@@ -1,6 +1,6 @@
-[submodule "coach-lau-client"]
-	path = ./client
-	url = git@github.com:AndrewCash/coach-lau-client.git
 [submodule "coach-lau-api"]
-	path = ./api
+	path = coach-lau-api
 	url = git@github.com:AndrewCash/coach-lau-api.git
+[submodule "coach-lau-client"]
+	path = coach-lau-client
+	url = git@github.com:AndrewCash/coach-lau-client.git
